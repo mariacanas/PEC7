@@ -46,5 +46,12 @@ Para configurar la carga Lazy, primero tenemos que  crear un módulo con un comp
 
 f) Compara las diferencias entre CanDeactivate y CanActivate guards en Angular. Proporciona ejemplos de cuándo se utilizaría cada uno
 
+CanDeActivate se utiliza como una especie de guardían que va a decidir si podemos salir de una página web o no. Esto es muy útil debido a que cuando estamos en una página donde hemos echo algún cambio pero estos no han sido guardados y la vamos a cerrar o salir, CanDeActivate nos va a mostrar un mensaaje de confirmación para asegurarnos de que realmente queremos salir de esta página sin que los cambias se hayan guardado.
+
+CanActivate se usa para proteger páginas que necesitan que estemos odentificados o que contemos con unos permisos especiales para poder entrar. Como por ejemplo, se usa para asegurarnos de que aquellas personas que han iniciado sesión puedan entran a una página de administración.
+
 g) ¿Qué es/para qué son útiles los middlewares en el contexto de Angular? ¿Dónde estás usando middlewares en nuestra aplicación?
 
+Son filtros que se utilizan para las solicitudes y respuestas HTTP. Pueden obtener y modificar estas solicitudes y respuestas antes de que lleguen a su destino. Esto por ejemplo lo podemos usar para manejar errores de una manera más centralizada. Se implementa a traves de interceptores HTTP, ya que estos obtienen una solicitud HTTP y modificarla y luego dejar que siga su destino, lo mismo lo pueden hacer con la respuesta antes de que llegue a su destino final.
+
+Se ha utilizado en la aplicación para manejar las solicitudes HTTP que salen y las respuestas que nos llegan para añadir tokens de autentificación a estas solicitudes y también se ha utilizado para proteger las rutas de acceso restringido a la aplicación.
