@@ -10,6 +10,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-reactive.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { ImageArticlePipe } from './pipes/image-article.pipe';
+import { AuthInterceptorService } from './auth.interceptor';
 
 
 @NgModule({
@@ -24,7 +25,11 @@ import { ImageArticlePipe } from './pipes/image-article.pipe';
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
