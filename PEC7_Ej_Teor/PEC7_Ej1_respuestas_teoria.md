@@ -20,11 +20,29 @@ Otras directivas que se pueden utilizar son:
 
 c) Describe el servicio ActivatedRouteSnapshot ¿Cómo se utiliza y en que casos es útil?
 
+Sirve para obtener datos de la ruta de una forma más fácil y directa, ya que se consigue al inicializar el componente, por lo que no vamos a tener que estar pendiente de los cambios posteriores en la ruta.
 
+ActivatedRouteSnapshot se usa para acceder a un parámetro de una ruta. Esto nos será útil cuando se necesiten leer estos datos que se están pasado al inicio de la carga del componente.
 
 d) ¿Qué son las route Guards? ¿Cómo se usan las guardas en Angular? Describe todas las guardas que existen en Angular
 
+Son funciones que nos van a permitir controlar el acceso a las rutas de una aplicación. Estas van a controlar si una ruta va a poder ser activada o no o por ejemplo también si un módulo se va a poder cargar o no.
+
+Para usarlas los que tenemos que definir una clase que esté formada por alguna de las interfaces guardadas de angular para así posteriormente añadir la guarda dentro de la configuración de rutas para aquellas rutas que queremos proteger.
+
+Los tipos de guarda son:
+
+-CanLoad que controlará si se puede cargar un módulo o no
+-Resolve que va cargar los datos que son necesarios para un compoenente antes de que este sea mostrado
+-CanDesactivate que va a controlar si se puede desactivar una ruta
+-CanActivate que va a controlar si se puede activar una ruta
+
 e) ¿Qué es la carga LAzy de los módulos de Angular? ¿Cómo se configura en Angular la carga lazy?
+
+La carga LAzy se utiliza para optimizar la carga de módulos, ya que estos solo se van a cargar si son necesarios. Ya que si no se utiliza esta técnica todos los módulos se van a cargar desde el principio. Esta técnica nos va a permitir mejorar el rendimiento inicial de la aplicación al no tener que cargar todos los módulos.
+
+Para configurar la carga Lazy, primero tenemos que  crear un módulo con un componente asociado utilizando el comando ng generate module feature --route feature --module app.module. Luego, vamos a definir las rutas internas de ese módulo en un archivo de enrutamiento, como feature-routing.module.ts. Finalmente, en el archivo de enrutamiento principal (app-routing.module.ts), configuramos la ruta para cargar el módulo de forma Lazy utilizando loadChildren.
+
 
 f) Compara las diferencias entre CanDeactivate y CanActivate guards en Angular. Proporciona ejemplos de cuándo se utilizaría cada uno
 
