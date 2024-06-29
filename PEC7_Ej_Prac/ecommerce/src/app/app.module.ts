@@ -11,6 +11,9 @@ import { ArticleNewReactiveComponent } from './article-new-reactive/article-new-
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { ImageArticlePipe } from './pipes/image-article.pipe';
 import { AuthInterceptorService } from './auth.interceptor';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { AuthInterceptorService } from './auth.interceptor';
     ArticleListComponent,
     ArticleNewReactiveComponent,
     ArticleItemComponent,
-    ImageArticlePipe
+    ImageArticlePipe,
+    LoginComponent,
+    RegisterComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule
