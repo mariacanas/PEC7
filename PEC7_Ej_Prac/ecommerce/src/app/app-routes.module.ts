@@ -6,21 +6,15 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 
 import { NgModule } from "@angular/core";
-import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'article/list', component: ArticleListComponent },
-    { path: 'article/create', component: ArticleNewReactiveComponent, canActivate: [AuthGuard] },
-    { path: 'article/:id', component: ArticleDetailComponent },
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: '**', redirectTo: '/login' }
-];
-
-@NgModule({
+    { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+    { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+    { path: 'article', loadChildren: () => import('./article/article.module').then(m => m.ArticleModule) }
+  ];
+  
+  @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
-  

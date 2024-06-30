@@ -17,8 +17,8 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   register(): void {
-    const { username, password } = this.registerForm.value;
-    if (this.authService.register(username,password)) {
+    const { username } = this.registerForm;
+    if (this.authService.register(username)) {
       this.router.navigate(['/article']);
     } 
   }
