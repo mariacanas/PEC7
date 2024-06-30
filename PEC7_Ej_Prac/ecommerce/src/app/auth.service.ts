@@ -7,7 +7,7 @@ import { AuthStoreService } from './auth-store.service';
   providedIn: 'root'
 })
 export class AuthService {
-
+  private tokenKey = 'authToken';
   private api = "http://localhost:3000/api/articles";
   constructor(private http: HttpClient,private authStore: AuthStoreService) { }
 
@@ -25,7 +25,10 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem(''); 
+    return localStorage.getItem(this.tokenKey) !== null;
+  }
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
   }
 }
 

@@ -16,7 +16,6 @@ import { ArticleService } from 'src/app/services/article.service';
       <input
         type="text" 
         name="searchBox"
-        [(ngModel)]="searchString"
         placeholder="Search Here"
         (keyup)="search()">
     </div>

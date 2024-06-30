@@ -15,6 +15,8 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routes.module';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -32,11 +34,14 @@ import { AppRoutingModule } from './app-routes.module';
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,AppRoutingModule 
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptorService,
-    multi: true
-  }],
+  providers: [ 
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
