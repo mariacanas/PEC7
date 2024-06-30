@@ -8,7 +8,7 @@ import { AuthStoreService } from './auth-store.service';
 })
 export class AuthService {
   private tokenKey = 'authToken';
-  private api = "http://localhost:3000/api/articles";
+  private api = "http://localhost:4200";
   constructor(private http: HttpClient,private authStore: AuthStoreService) { }
 
   login(username: string, password: string): Observable<any> {

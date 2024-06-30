@@ -17,6 +17,8 @@ import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routes.module';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { ArticleModule } from './article/article.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { AuthService } from './auth.service';
     ArticleDetailComponent
   ],
   imports: [
-    BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,AppRoutingModule 
+    BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,AppRoutingModule, ArticleModule, AuthModule
   ],
   providers: [ 
     AuthService,

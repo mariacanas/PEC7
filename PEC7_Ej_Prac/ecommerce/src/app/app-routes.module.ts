@@ -9,7 +9,7 @@ import { NgModule } from "@angular/core";
 import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login/login.component', pathMatch: 'full' },
+    { path: '', redirectTo: '', pathMatch: 'full' },
     { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
     { path: 'article', loadChildren: () => import('./article/article.module').then(m => m.ArticleModule) }
 ];
